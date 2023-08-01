@@ -21,10 +21,17 @@ spring:
           uri: http://localhost:8888
           predicates:
             - Path=/auth/**
-            - Path=/registration/**
           filters:
             - StripPrefix=1
-            - PrefixPath=/app-auth
+            - PrefixPath=/auth-service
+            - JwtAuthFilter
+        - id: account-service
+          uri: http://localhost:8189
+          predicates:
+            - Path=/accounts/**
+          filters:
+            - StripPrefix=1
+            - PrefixPath=/account-service
             - JwtAuthFilter
 
 jwt:
