@@ -39,7 +39,7 @@ spring:
             - Path=/subscriptions/**
           filters:
             - StripPrefix=1
-            - PrefixPath=/auth-service
+            - PrefixPath=/subscription-service
             - JwtAuthFilter
         - id: schedule-service
           uri: http://localhost:8191
@@ -47,7 +47,7 @@ spring:
             - Path=/schedule/**
           filters:
             - StripPrefix=1
-            - PrefixPath=/auth-service
+            - PrefixPath=/schedule-service
             - JwtAuthFilter
 
 jwt:
